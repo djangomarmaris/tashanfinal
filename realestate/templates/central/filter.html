@@ -1,0 +1,176 @@
+{% extends "base.html" %}
+
+{% load static i18n %}
+
+{% block css %}
+
+{% endblock %}
+
+{% block seo %}
+
+
+<title>Filter</title>
+
+<meta name="description" content="" />
+
+<meta name="keywords" content="" />
+
+<link rel="canonical" href=""/>
+
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+
+<meta name="robots" content="index,follow"/>
+
+<meta name="googlebot" content="index,follow"/>
+
+<meta name="author" content="İhsan Gürol Demirtaş">
+
+<meta name="publisher" content="2020.01" />
+
+{% endblock %}
+
+
+
+
+{% block content %}
+<section class="property-query-area bg_light">
+  <div class="container">
+    <div class="row">
+      <form class="callus" method="get" action="/tashan-emlak/filter/">
+        {% csrf_token %}
+        <div class="col-md-3 col-sm-6">
+          <div class="single-query form-group">
+            <div class="intro">
+              <select name="city" >
+                <option selected="" value="Muğla">Şehir</option>
+                {% for product in citys %}
+                <option  value="{{product.name}}">{{product.name}}</option>
+                {% endfor %}
+              </select>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 col-sm-6">
+          <div class="single-query form-group">
+            <div class="intro">
+              <select name="region">
+                <option selected="" value="">İlçe</option>
+                {% for product in regions %}
+                <option  value="{{product.name}}">{{product.name}}</option>
+                {% endfor %}
+              </select>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 col-sm-6">
+          <div class="single-query form-group">
+            <div class="intro">
+              <select name="type">
+                <option class="active">Tipi</option>
+                {% for product in types %}
+                <option value="{{product.name}}">{{product.name}}</option>
+                {% endfor %}
+              </select>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3 col-sm-6">
+          <div class="single-query form-group">
+            <div class="intro">
+              <select name="model">
+                <option class="active">Model</option>
+                {% for model in categorys %}
+                <option value="{{model.name}}">{{model.name}}</option>
+
+                {% endfor %}
+              </select>
+            </div>
+          </div>
+        </div>
+
+
+
+        <div class="col-md-4 col-sm-6">
+          <div class="row">
+            <div class="col-sm-6">
+              <div class="single-query form-group">
+                <input required name="min" type="text" class="keyword-input" placeholder="Min M2 (sq ft)">
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="single-query form-group">
+                <input name="max" type="text" class="keyword-input" placeholder="Max M2 (sq ft)">
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="row">
+            <div class="col-md-8">
+              <div class="single-query-slider">
+                <label>Fiyat Aralığı:</label>
+                <div class="price text-right">
+                  <span>TL</span>
+                  <div class="leftLabel"></div>
+                  <span>to TL</span>
+                  <div class="rightLabel" id="demo"></div>
+                </div>
+                <div class="slidecontainer">
+                  <input name="price" type="range" min="500000" max="10000000" step="250000" value="50" class="slider" id="myRange">
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4 text-right form-group">
+              <button type="submit" class="btn-blue border_radius top15">Ara</button>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+<section id="deal" class="padding">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12">
+        <h2 class="uppercase">Best Deal Properties</h2>
+        <p class="heading_space">We have Properties in these Areas View a list of Featured Properties.</p>
+      </div>
+    </div>
+    <div class="row">
+      {% for product in products %}
+      <div class="col-sm-6">
+      <div class="listing_full">
+            <div class="image">
+              <img alt="image" src="{% if product.image %}{{ product.image.url }}{% else %}{% endif %}">
+              <span class="tag_t">{{product.type}}</span>
+            </div>
+            <div class="listing_full_bg">
+              <div class="listing_inner_full">
+                <span><a href="#."><i class="icon-like"></i></a></span>
+                <a href="property_detail1.html">
+                  <h3>{{product.name}}</h3>
+                  <p>{{product.region}}</p>
+                </a>
+                <div class="favroute clearfix">
+                  <div class="property_meta"><span><i class="icon-select-an-objecto-tool"></i>{{product.m2}} sq ft</span><span><i class=" icon-bed"></i>{{product.bathrooms}} Y.Odası</span><span><i class="icon-safety-shower"></i>{{product.bedrooms}} Banyo</span><span class="border-l">TL {{product.price}}</span></div>
+                </div>
+              </div>
+            </div>
+          </div>
+      </div>
+      {% endfor %}
+
+
+      </div>
+  </div>
+
+
+</section>
+{% endblock %}
+
+
+
+
+{% block jss %}
+{% endblock %}

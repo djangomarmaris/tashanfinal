@@ -1,0 +1,99 @@
+{% extends "base.html" %}
+
+{% load static i18n %}
+
+{% block css %}
+
+{% endblock %}
+
+{% block seo %}
+
+
+<title>Tashan Emlak DETAY</title>
+
+<meta name="description" content="" />
+
+<meta name="keywords" content="" />
+
+<link rel="canonical" href=""/>
+
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+
+<meta name="robots" content="index,follow"/>
+
+<meta name="googlebot" content="index,follow"/>
+
+<meta name="author" content="İhsan Gürol Demirtaş">
+
+<meta name="publisher" content="2020.01" />
+
+{% endblock %}
+
+
+
+
+{% block content %}
+<section id="contact-us" class="padding">
+  <div class="container">
+
+    <div class="row">
+      <div class="col-sm-7 margin40">
+        <div class="our-agent-box bottom30">
+          <h2>Bize Yazın</h2>
+        </div>
+        <form class="callus" method="post">
+          {% csrf_token %}
+          <div class="row">
+            <div class="col-sm-6">
+              <div class="form-group">
+                <input name="name" type="text" class="form-control" placeholder="İsim">
+              </div>
+              <div class="form-group">
+                <input name="phone" type="tel" class="form-control" placeholder="Telefon">
+              </div>
+              <div class="form-group">
+                <input name="email" type="email" class="form-control" placeholder="Email">
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="form-group">
+                <textarea name="messages" class="form-control" placeholder="Mesaj"></textarea>
+              </div>
+            </div>
+            <div class="col-sm-12 row">
+              <div class="row">
+                <div class="col-sm-3">
+                  <input name='btnSubmit' type="submit" class="btn-blue uppercase border_radius" value="Gönder">
+                </div>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="col-sm-5 margin40">
+        <div class="agent-p-contact">
+          <div class="our-agent-box bottom30">
+            <h2>İletişim Bilgileri</h2>
+          </div>
+          <div class="agetn-contact-2 bottom30">
+            <p><i class="icon-telephone114"></i>+90 542 425 83 39</p>
+            <p><i class=" icon-icons142"></i>info@tashanemlakinsaat.com</p>
+            <p><i class="icon-browser2"></i>https://tashanemlakinsaat.com/</p>
+            <p><i class="icon-icons74"></i> Armutalan Mahallesi. Adnan Menderes Caddesi No: 74C Marmaris / Muğla</p>
+          </div>
+          <ul class="social_share bottom20">
+            <li><a href="javascript:void(0)" class="facebook"><i class="icon-facebook-1"></i></a></li>
+            <li><a href="javascript:void(0)" class="twitter"><i class="icon-instagram"></i></a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}
+
+
+
+
+{% block jss %}
+{% endblock %}

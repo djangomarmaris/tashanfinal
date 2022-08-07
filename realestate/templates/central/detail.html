@@ -1,0 +1,244 @@
+{% extends "base.html" %}
+
+{% load static i18n %}
+
+{% block css %}
+
+{% endblock %}
+
+{% block seo %}
+
+
+<title>Tashan Emlak DETAY</title>
+
+<meta name="description" content="" />
+
+<meta name="keywords" content="" />
+
+<link rel="canonical" href=""/>
+
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+
+<meta name="robots" content="index,follow"/>
+
+<meta name="googlebot" content="index,follow"/>
+
+<meta name="author" content="İhsan Gürol Demirtaş">
+
+<meta name="publisher" content="2020.01" />
+
+{% endblock %}
+
+
+
+
+{% block content %}
+<section class="page-banner padding">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 text-center">
+        <h1 class="text-uppercase">Taşhan Emlak İnşaat</h1>
+        <p>Serving you since 1999. Lorem ipsum dolor sit amet consectetur adipiscing elit.</p>
+        <ol class="breadcrumb text-center">
+          <li><a href="/">Ana Sayfa</a></li>
+          <li class="active">{{product.name}}</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- Page Banner End -->
+
+
+<!-- Property Detail -->
+<section id="property" class="padding">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 listing1 property-details">
+        <h2 class="text-uppercase">{{product.name}}</h2>
+        <p class="bottom30">{{product.region}}</p>
+        <div id="property-d-1" class="owl-carousel single">
+          {% for x in images %}
+          <div class="item"><img src="{% if x.image %}{{ x.image.url }}{% else %}{% endif %}" alt="image"/></div>
+          {% endfor %}
+        </div>
+        <div id="property-d-1-2" class="owl-carousel single">
+          {% for x in images %}
+          <div class="item" ><img src="{% if x.image %}{{ x.image.url }}{% else %}{% endif %}" alt="image"/></div>
+          {% endfor %}
+        </div>
+        <div class="property_meta bg-black bottom40">
+          <span><i class="icon-select-an-objecto-tool"></i>{{product.m2}} sq ft M2</span>
+          <span><i class="icon-bed"></i>{{product.bedrooms}} Yatak Odası</span>
+          <span><i class="icon-safety-shower"></i>{{product.bathrooms}} Banyo </span>
+          {% if product.pool == True %}
+          <span><i class="icon-pool-stairs"></i> Var</span>
+          {% else %}
+          <span><i class="icon-pool-stairs"></i> Yok</span>
+          {% endif %}
+          {% if product.garage == True %}
+          <span><i class="icon-garage"></i> Var</span>
+          {% else %}
+          <span><i class="icon-garage"></i> Yok</span>
+          {% endif %}
+        </div>
+        <h2 class="text-uppercase">Taşhan Emlak İnşaat - Güvencesinde</h2>
+        <p class="bottom30">{{product.info | safe}}</p>
+
+        <h2 class="text-uppercase bottom20">Detay Bilgiler</h2>
+        <div class="row property-d-table bottom40">
+          <div class="col-md-6 col-sm-6 col-xs-12">
+            <table class="table table-striped table-responsive">
+              <tbody>
+                <tr>
+                  <td><b>Property Id</b></td>
+                  <td class="text-right">{{product.id}}</td>
+                </tr>
+                 {% if product.type.name == 'Satılık' %}
+                 <tr>
+                  <td><b>Fiyat</b></td>
+                  <td class="text-right">₺ {{product.price}}</td>
+                </tr>
+                {% else %}
+                 <tr>
+                  <td><b>Fiyat</b></td>
+                  <td class="text-right">₺ {{product.price}} / Aylık</td>
+                </tr>
+                {% endif %}
+
+                <tr>
+                  <td><b>M2</b></td>
+                  <td class="text-right">{{product.m2}} M2</td>
+                </tr>
+                <tr>
+                  <td><b>Yatak Odası</b></td>
+                  <td class="text-right">{{product.bedrooms}}</td>
+                </tr>
+                <tr>
+                  <td><b>Banyo</b></td>
+                  <td class="text-right">{{product.bathrooms}}</td>
+                </tr>
+                <tr>
+                  <td><b>Yetkili</b></td>
+                  <td class="text-right">Taşhan Emlak</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="col-md-6 col-sm-6 col-xs-12">
+            <table class="table table-striped table-responsive">
+              <tbody>
+                <tr>
+                  <td><b>Durumu</b></td>
+                  <td class="text-right">{{product.type}}</td>
+                </tr>
+                <tr>
+                  <td><b>Yapılış Yılı</b></td>
+                  <td class="text-right">{{product.build}}</td>
+                </tr>
+                {% if product.pool == True %}
+                <tr>
+                  <td><b>Garaj</b></td>
+                  <td class="text-right">Var</td>
+                </tr>
+                {% else %}
+                <tr>
+                  <td><b>Gara</b></td>
+                  <td class="text-right">Yok</td>
+                </tr>
+                {% endif %}
+                <tr>
+                  <td><b>Adres</b></td>
+                  <td class="text-right">{{product.region}}</td>
+                </tr>
+                <tr>
+                  <td><b>Floors</b></td>
+                  <td class="text-right">{{product.floor}}</td>
+                </tr>
+                <tr>
+                  <td><b>Görünümü</b></td>
+                  <td class="text-right">Bakımlı</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <h2 class="text-uppercase bottom20">Property Map</h2>
+        <div class="row bottom40">
+          <div class="col-md-12 bottom20">
+            <div class="property-list-map">
+              <iframe width="100%" height="600" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=en&amp;q={{product.adress}}+(My%20Business%20Name)&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"></iframe>
+            </div>
+          </div>
+        </div>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <h2 class="text-uppercase bottom20">Müşteri Temsilcisi</h2>
+        <div class="row">
+          <div class="col-sm-4 bottom40">
+            <div class="agent_wrap">
+              <div class="image">
+                <img src="{% if product.agent.image.url %}{{ product.agent.image.url }}{% else %}{% endif %}" alt="Agents">
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-4 bottom40">
+            <div class="agent_wrap">
+              <h3>{{product.agent}}</h3>
+              <p class="bottom30">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh tempor cum soluta nobis consectetuer adipiscing eleifend option congue nihil imperdiet doming…</p>
+              <table class="agent_contact table">
+                <tbody>
+                  <tr class="bottom10">
+                    <td><strong>Telefon:</strong></td>
+                    <td class="text-right">{{product.agent.phone}}</td>
+                  </tr>
+                  <tr class="bottom10">
+                    <td><strong>Email:</strong></td>
+                    <td class="text-right">{{product.agent.email}}</td>
+                  </tr>
+                </tbody>
+              </table>
+              <div style="border-bottom:1px solid #d3d8dd;" class="bottom15"></div>
+              <ul class="social_share">
+                <li><a href="#." class="facebook"><i class="icon-facebook-1"></i></a></li>
+                <li><a href="#." class="twitter"><i class="icon-instagram"></i></a></li>
+
+              </ul>
+            </div>
+          </div>
+          <div class="col-sm-4 bottom40">
+            <form class="callus" method="POST">
+              {% csrf_token %}
+              <div class="form-group">
+                <input name="name" type="text" class="form-control" placeholder="Name">
+              </div>
+              <div class="form-group">
+                <input name="phone" type="tel" class="form-control" placeholder="Phone Number">
+              </div>
+              <div class="form-group">
+                <input name="email" type="email" class="form-control" placeholder="Email">
+              </div>
+              <div class="form-group">
+                <textarea name="messages" class="form-control" placeholder="Message"></textarea>
+              </div>
+              <input name='btnSubmit' type="submit" class="btn-blue uppercase border_radius" value="submit now">
+            </form>
+          </div>
+          <div class="clearfix"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}
+
+
+
+
+{% block jss %}
+{% endblock %}
