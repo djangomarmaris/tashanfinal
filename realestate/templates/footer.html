@@ -1,69 +1,301 @@
 {% load static i18n %}
 
- <footer class="padding_top">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-3 col-sm-6">
-            <div class="footer_panel bottom30">
-              <a href="javascript:void(0)" class="logo bottom30"><img src="{% static 'mainlogo.png' %}" alt="logo"></a>
-              <p class="bottom15">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh
-                tempor cum consectetuer
-                adipiscing.
-              </p>
-              <p class="bottom15">If you are interested in castle do not wait and <a href="javascript:void(0)">BUY IT NOW!</a></p>
-              <ul class="social_share">
-                <li><a href="javascript:void(0)" class="facebook"><i class="icon-facebook-1"></i></a></li>
-                <li><a href="javascript:void(0)" class="twitter"><i class="icon-instagram"></i></a></li>
-              </ul>
-            </div>
-          </div>
-          <div class="col-md-3 col-sm-6">
-            <div class="footer_panel bottom30">
-              <h4 class="bottom30">Satılık | Ürünlermiz</h4>
-              <ul class="area_search">
-                {% for product in sender %}
-                <li><a href="/tashan-emlak/property/list/sale/{{product.slug}}"><i class="icon-icons74"></i>{{product.name}} | İncele</a></li>
-                {% endfor %}
-              </ul>
-            </div>
-          </div>
-          <div class="col-md-3 col-sm-6">
-            <div class="footer_panel bottom30">
-              <h4 class="bottom30">Kiralık | Ürünlermiz</h4>
-              <ul class="area_search">
-                {% for product in sender %}
-                <li><a href="/tashan-emlak/property/list/rent/{{product.slug}}"><i class="icon-icons74"></i>{{product.name}} | İncele</a></li>
-                {% endfor %}
-              </ul>
-            </div>
-          </div>
+<footer class="ltn__footer-area  ">
+        <div class="footer-top-area  section-bg-1 plr--5">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-3 col-md-6 col-sm-6 col-12">
+                        <div class="footer-widget footer-about-widget">
+                            <div class="footer-logo">
+                                <div class="site-logo">
+                                    <img src="{% static 'main.png' %}" alt="Logo">
+                                </div>
+                            </div>
+                            <p>Lorem Ipsum is simply dummy text of the and typesetting industry. Lorem Ipsum is dummy text of the printing.</p>
+                            <div class="footer-address">
+                                <ul>
+                                    <li>
+                                        <div class="footer-address-icon">
+                                            <i class="icon-placeholder"></i>
+                                        </div>
+                                        <div class="footer-address-info">
+                                            <p>Armutalan Mahallesi. Adnan Menderes Caddesi No: 74C Marmaris / Muğla</p>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="footer-address-icon">
+                                            <i class="icon-call"></i>
+                                        </div>
+                                        <div class="footer-address-info">
+                                            <p><a href="tel:+90 542 425 83 39">+90 542 425 83 39</a></p>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="footer-address-icon">
+                                            <i class="icon-mail"></i>
+                                        </div>
+                                        <div class="footer-address-info">
+                                            <p><a style="font-size:15px;" href="mailto:info@tashanemlakinsaat.com">info@tashanemlakinsaat.com</a></p>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-md-6 col-sm-6 col-12">
+                        <div class="footer-widget footer-menu-widget clearfix">
+                            <h4 class="footer-title">Satılık</h4>
+                            <div class="footer-menu">
+                                <ul>
+                                    {% for product in sender %}
+                                    <li><a href="/tashan-emlak/property/list/sale/{{product.slug}}">{{product.name}} | Hemen İncele</a></li>
+                                    {% endfor %}
 
-          <div class="col-md-3 col-sm-6">
-            <div class="footer_panel bottom30">
-              <h4 class="bottom30">İletişim</h4>
-              <ul class="getin_touch">
-                <li><i class="icon-telephone114"></i>+90 542 425 83 39</li>
-                <li><a href="javascript:void(0)"><i class="icon-icons142"></i>info@tashan.com</a></li>
-                <li><a href="javascript:void(0)"><i class="icon-browser2"></i>www.tashan.com</a></li>
-                <li><i class="icon-icons74"></i>Armutalan Mahallesi. Adnan Menderes Caddesi No: 74C Marmaris / Muğla</li>
-              </ul>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-md-6 col-sm-6 col-12">
+                        <div class="footer-widget footer-menu-widget clearfix">
+                            <h4 class="footer-title">Kiralık</h4>
+                            <div class="footer-menu">
+                                <ul>
+                                    {% for product in sender %}
+                                    <li><a href="/tashan-emlak/property/list/rent/{{product.slug}}">{{product.name}} | Hemen İncele</a></li>
+                                    {% endfor %}
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-xl-3 col-md-6 col-sm-12 col-12">
+                        <div class="footer-widget footer-newsletter-widget">
+                            <h4 class="footer-title">Kayıt Olun</h4>
+                            <p>Bizimle ilgili tüm yeniliklerden haberdar olmak için kayıt olun</p>
+                            <div class="footer-newsletter">
+                                <form action="#">
+                                    <input type="email" name="email" placeholder="Email*">
+                                    <div class="btn-wrapper">
+                                        <button class="theme-btn-1 btn" type="submit"><i class="fas fa-location-arrow"></i></button>
+                                    </div>
+                                </form>
+                            </div>
+                            <h5 class="mt-30">Ödeme</h5>
+                            <img src="{% static 'img/icons/payment-4.png' %}" alt="Payment Image">
+                        </div>
+                    </div>
+                </div>
             </div>
-          </div>
         </div>
-      </div>
+        <div class="ltn__copyright-area ltn__copyright-2 section-bg-7  plr--5">
+            <div class="container-fluid ltn__border-top-2">
+                <div class="row">
+                    <div class="col-md-6 col-12">
+                        <div class="ltn__copyright-design clearfix">
+                            <p>All Rights Reserved @ Central Web Agency <span class="current-year"></span></p>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-12 align-self-center">
+                        <div class="ltn__copyright-menu text-end">
+                            <ul>
+                                <li><a href="/">Terms & Conditions</a></li>
+                                <li><a href="/">Claim</a></li>
+                                <li><a href="/">Privacy & Policy</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </footer>
-    <!--CopyRight-->
-    <div class="copyright">
-      <div class="copyright_inner">
-        <div class="container">
-          <div class="row">
-            <div class="col-md-7">
-              <a href="/">Copyright &copy; 2022 <span>Central Web Agency</span>. All rights reserved.</a>
+    <!-- FOOTER AREA END -->
+
+    <!-- MODAL AREA START (Quick View Modal) -->
+    <div class="ltn__modal-area ltn__quick-view-modal-area">
+        <div class="modal fade" id="quick_view_modal" tabindex="-1">
+            <div class="modal-dialog modal-lg" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                            <!-- <i class="fas fa-times"></i> -->
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                         <div class="ltn__quick-view-modal-inner">
+                             <div class="modal-product-item">
+                                <div class="row">
+                                    <div class="col-lg-6 col-12">
+                                        <div class="modal-product-img">
+                                            <img src="img/product/4.png" alt="#">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6 col-12">
+                                        <div class="modal-product-info">
+                                            <div class="product-ratting">
+                                                <ul>
+                                                    <li><a href="#"><i class="fas fa-star"></i></a></li>
+                                                    <li><a href="#"><i class="fas fa-star"></i></a></li>
+                                                    <li><a href="#"><i class="fas fa-star"></i></a></li>
+                                                    <li><a href="#"><i class="fas fa-star-half-alt"></i></a></li>
+                                                    <li><a href="#"><i class="far fa-star"></i></a></li>
+                                                    <li class="review-total"> <a href="#"> ( 95 Reviews )</a></li>
+                                                </ul>
+                                            </div>
+                                            <h3>3 Rooms Manhattan</h3>
+                                            <div class="product-price">
+                                                <span>$149.00</span>
+                                                <del>$165.00</del>
+                                            </div>
+                                            <div class="modal-product-meta ltn__product-details-menu-1">
+                                                <ul>
+                                                    <li>
+                                                        <strong>Categories:</strong>
+                                                        <span>
+                                                            <a href="#">Parts</a>
+                                                            <a href="#">Car</a>
+                                                            <a href="#">Seat</a>
+                                                            <a href="#">Cover</a>
+                                                        </span>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                            <div class="ltn__product-details-menu-2">
+                                                <ul>
+                                                    <li>
+                                                        <div class="cart-plus-minus">
+                                                            <input type="text" value="02" name="qtybutton" class="cart-plus-minus-box">
+                                                        </div>
+                                                    </li>
+                                                    <li>
+                                                        <a href="#" class="theme-btn-1 btn btn-effect-1" title="Add to Cart" data-bs-toggle="modal" data-bs-target="#add_to_cart_modal">
+                                                            <i class="fas fa-shopping-cart"></i>
+                                                            <span>ADD TO CART</span>
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                            <div class="ltn__product-details-menu-3">
+                                                <ul>
+                                                    <li>
+                                                        <a href="#" class="" title="Wishlist" data-bs-toggle="modal" data-bs-target="#liton_wishlist_modal">
+                                                            <i class="far fa-heart"></i>
+                                                            <span>Add to Wishlist</span>
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="#" class="" title="Compare" data-bs-toggle="modal" data-bs-target="#quick_view_modal">
+                                                            <i class="fas fa-exchange-alt"></i>
+                                                            <span>Compare</span>
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                            <hr>
+                                            <div class="ltn__social-media">
+                                                <ul>
+                                                    <li>Share:</li>
+                                                    <li><a href="#" title="Facebook"><i class="fab fa-facebook-f"></i></a></li>
+                                                    <li><a href="#" title="Twitter"><i class="fab fa-twitter"></i></a></li>
+                                                    <li><a href="#" title="Linkedin"><i class="fab fa-linkedin"></i></a></li>
+                                                    <li><a href="#" title="Instagram"><i class="fab fa-instagram"></i></a></li>
+
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                             </div>
+                         </div>
+                    </div>
+                </div>
             </div>
-            <div class="col-md-5 text-right">
-              <p>Designed by <a href="javascript:void(0)">igdinvesting</a></p>
-            </div>
-          </div>
         </div>
-      </div>
+    </div>
+    <!-- MODAL AREA END -->
+
+    <!-- MODAL AREA START (Add To Cart Modal) -->
+    <div class="ltn__modal-area ltn__add-to-cart-modal-area">
+        <div class="modal fade" id="add_to_cart_modal" tabindex="-1">
+            <div class="modal-dialog modal-md" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                         <div class="ltn__quick-view-modal-inner">
+                             <div class="modal-product-item">
+                                <div class="row">
+                                    <div class="col-12">
+                                        <div class="modal-product-img">
+                                            <img src="img/product/1.png" alt="#">
+                                        </div>
+                                         <div class="modal-product-info">
+                                            <h5><a href="product-details.html">3 Rooms Manhattan</a></h5>
+                                            <p class="added-cart"><i class="fa fa-check-circle"></i>  Successfully added to your Cart</p>
+                                            <div class="btn-wrapper">
+                                                <a href="cart.html" class="theme-btn-1 btn btn-effect-1">View Cart</a>
+                                                <a href="checkout.html" class="theme-btn-2 btn btn-effect-2">Checkout</a>
+                                            </div>
+                                         </div>
+                                         <!-- additional-info -->
+                                         <div class="additional-info d-none">
+                                            <p>We want to give you <b>10% discount</b> for your first order, <br>  Use discount code at checkout</p>
+                                            <div class="payment-method">
+                                                <img src="img/icons/payment.png" alt="#">
+                                            </div>
+                                         </div>
+                                    </div>
+                                </div>
+                             </div>
+                         </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- MODAL AREA END -->
+
+    <!-- MODAL AREA START (Wishlist Modal) -->
+    <div class="ltn__modal-area ltn__add-to-cart-modal-area">
+        <div class="modal fade" id="liton_wishlist_modal" tabindex="-1">
+            <div class="modal-dialog modal-md" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                         <div class="ltn__quick-view-modal-inner">
+                             <div class="modal-product-item">
+                                <div class="row">
+                                    <div class="col-12">
+                                        <div class="modal-product-img">
+                                            <img src="img/product/7.png" alt="#">
+                                        </div>
+                                         <div class="modal-product-info">
+                                            <h5><a href="product-details.html">3 Rooms Manhattan</a></h5>
+                                            <p class="added-cart"><i class="fa fa-check-circle"></i>  Successfully added to your Wishlist</p>
+                                            <div class="btn-wrapper">
+                                                <a href="wishlist.html" class="theme-btn-1 btn btn-effect-1">View Wishlist</a>
+                                            </div>
+                                         </div>
+                                         <!-- additional-info -->
+                                         <div class="additional-info d-none">
+                                            <p>We want to give you <b>10% discount</b> for your first order, <br>  Use discount code at checkout</p>
+                                            <div class="payment-method">
+                                                <img src="img/icons/payment.png" alt="#">
+                                            </div>
+                                         </div>
+                                    </div>
+                                </div>
+                             </div>
+                         </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>

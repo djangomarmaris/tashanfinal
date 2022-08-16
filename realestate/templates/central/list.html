@@ -42,7 +42,7 @@
           <div class="single-query form-group">
             <div class="intro">
               <select name="city" >
-                <option selected="" value="Muğla">Şehir</option>
+                <option selected="" value="Muğla">İl</option>
                 {% for product in citys %}
                 <option  value="{{product.name}}">{{product.name}}</option>
                 {% endfor %}
@@ -50,7 +50,7 @@
             </div>
           </div>
         </div>
-        <div class="col-md-4 col-sm-6">
+        <div class="col-md-3 col-sm-6">
           <div class="single-query form-group">
             <div class="intro">
               <select name="region">
@@ -62,11 +62,11 @@
             </div>
           </div>
         </div>
-        <div class="col-md-4 col-sm-6">
+        <div class="col-md-3 col-sm-6">
           <div class="single-query form-group">
             <div class="intro">
               <select name="type">
-                <option class="active">Tipi</option>
+                <option class="active">Durumu</option>
                 {% for product in types %}
                 <option value="{{product.name}}">{{product.name}}</option>
                 {% endfor %}
@@ -74,11 +74,11 @@
             </div>
           </div>
         </div>
-        <div class="col-md-3 col-sm-6">
+        <div class="col-md-2 col-sm-6">
           <div class="single-query form-group">
             <div class="intro">
               <select name="model">
-                <option class="active">Model</option>
+                <option class="active">Gayirmenkul Tipi</option>
                 {% for model in categorys %}
                 <option value="{{model.name}}">{{model.name}}</option>
 
@@ -90,37 +90,11 @@
 
 
 
-        <div class="col-md-4 col-sm-6">
+
+        <div class="col-md-1">
           <div class="row">
-            <div class="col-sm-6">
-              <div class="single-query form-group">
-                <input required name="min" type="text" class="keyword-input" placeholder="Min M2 (sq ft)">
-              </div>
-            </div>
-            <div class="col-sm-6">
-              <div class="single-query form-group">
-                <input name="max" type="text" class="keyword-input" placeholder="Max M2 (sq ft)">
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="row">
-            <div class="col-md-8">
-              <div class="single-query-slider">
-                <label>Fiyat Aralığı:</label>
-                <div class="price text-right">
-                  <span>TL</span>
-                  <div class="leftLabel"></div>
-                  <span>to TL</span>
-                  <div class="rightLabel" id="demo"></div>
-                </div>
-                <div class="slidecontainer">
-                  <input name="price" type="range" min="500000" max="10000000" step="250000" value="50" class="slider" id="myRange">
-                </div>
-              </div>
-            </div>
-            <div class="col-md-4 text-right form-group">
+
+            <div class="col-md-6 text-center form-group">
               <button type="submit" class="btn-blue border_radius top15">Ara</button>
             </div>
           </div>
@@ -148,7 +122,7 @@
             </div>
             <div class="listing_full_bg">
               <div class="listing_inner_full">
-                <span><a href="#."><i class="icon-like"></i></a></span>
+                <span><a href="{{product.get_absolute_url}}"><i class="icon-like"></i></a></span>
                 <a href="property_detail1.html">
                   <h3>{{product.name}}</h3>
                   <p>{{product.region}}</p>

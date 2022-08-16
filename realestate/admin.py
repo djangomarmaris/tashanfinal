@@ -1,12 +1,16 @@
 from django.contrib import admin
 from django.contrib.auth.models import User, Group
-from .models import  Type,City,Region,Category,Product,Agent,Comment , Room ,Images
+from .models import  Type,City,Region,Category,Product,Agent,Comment , Room ,Images ,Works
 # Register your models here.
 
 
 
 class Gallery(admin.TabularInline):
     model = Images
+
+
+
+
 
 class RoomAdmin(admin.ModelAdmin):
     list_display = ['name']
@@ -43,6 +47,10 @@ class CommentAdmin(admin.ModelAdmin):
     list_display = ['name']
 
 
+class WorksAdmin(admin.ModelAdmin):
+    list_display = ['title']
+
+
 admin.site.unregister(User)
 admin.site.unregister(Group)
 
@@ -54,6 +62,7 @@ admin.site.register(Product,ProdcutAdmin)
 admin.site.register(Type,TypeAdmin)
 admin.site.register(City,CityAdmin)
 admin.site.register(Region,RegionAdmin)
+admin.site.register(Works,WorksAdmin)
 
 admin.site.site_title = 'Central Web Agency'
 admin.site.site_header = 'Taşhan Emlak'

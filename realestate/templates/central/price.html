@@ -1,0 +1,243 @@
+{% extends "base.html" %}
+
+{% load static i18n %}
+
+{% block css %}
+
+{% endblock %}
+
+{% block seo %}
+
+
+<title>Tashan Emlak Ürünlerimiz</title>
+
+<meta name="description" content="" />
+
+<meta name="keywords" content="" />
+
+<link rel="canonical" href=""/>
+
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+
+<meta name="robots" content="index,follow"/>
+
+<meta name="googlebot" content="index,follow"/>
+
+<meta name="author" content="İhsan Gürol Demirtaş">
+
+<meta name="publisher" content="2020.01" />
+
+{% endblock %}
+
+
+
+
+{% block content %}
+<div class="ltn__breadcrumb-area text-left bg-overlay-white-30 bg-image "  data-bs-bg="{% static 'img/bg/20.jpg' %}">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="ltn__breadcrumb-inner">
+                        <h1 class="page-title">Sonuçlar</h1>
+                        <div class="ltn__breadcrumb-list">
+                            <ul>
+                                <li><a href="/tashan-emlak/about/"><span class="ltn__secondary-color"><i class="fas fa-home"></i></span> Ana Sayfa</a></li>
+                                <li>Fiyatsal Sıralama</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<form class="callus" method="get" action="/tashan-emlak/price/">
+  {% csrf_token %}
+<div class="ltn__product-area ltn__product-gutter mb-100">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="ltn__shop-options">
+                        <ul>
+                            <li>
+                                <div class="ltn__grid-list-tab-menu ">
+                                    <div class="nav">
+                                        <a class="active show" data-bs-toggle="tab" href="#liton_product_grid"><i class="fas fa-th-large"></i></a>
+                                        <a data-bs-toggle="tab" href="#liton_product_list"><i class="fas fa-list"></i></a>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                               <div class="short-by text-center">
+                                   <select name="render" class="nice-select">
+
+                                      <option value="HİGH">Fiyat (Önce Yüksek)</option>
+                                      <option value="LOW">Fiyat (Önce Düşük)</option>
+                                    </select>
+                                </div>
+                            </li>
+                            <li>
+                               <div class="showing-product-number text-right">
+                                    <button type="submit" class="btn theme-btn-1 btn-effect-1 text-uppercase">Sırala</button>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="tab-content">
+                        <div class="tab-pane fade active show" id="liton_product_grid">
+                            <div class="ltn__product-tab-content-inner ltn__product-grid-view">
+                                <div class="row">
+                                    {% for product in products %}
+                                    <input hidden name="t1" value="{{product.type}}">
+                                    <input hidden name="c1" value="{{product.category}}">
+                                    <div class="col-lg-4 col-sm-6 col-12">
+                                        <div class="ltn__product-item ltn__product-item-4 ltn__product-item-5 text-center---">
+                                            <div class="product-img">
+                                                <a href="{{product.get_absolute_url}}"><img src="{% if product.image %}{{ product.image.url }}{% else %}{% endif %}" alt="#"></a>
+                                                <div class="real-estate-agent">
+                                                    <div class="agent-img">
+                                                        <a href="{{product.get_absolute_url}}"><img width="300" height="50" src="{% if product.agent.image %}{{ product.agent.image.url }}{% else %}{% endif %}" alt="#"></a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="product-info">
+                                                <div class="product-badge">
+                                                    <ul>
+                                                        <li class="sale-badg">{{product.type}}</li>
+                                                    </ul>
+                                                </div>
+                                                <h2 class="product-title"><a href="{{product.get_absolute_url}}">{{product.name}}</a></h2>
+                                                <div class="product-img-location">
+                                                    <ul>
+                                                        <li>
+                                                            <a href="locations.html"><i class="flaticon-pin"></i> {{product.region}}</a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                                <ul class="ltn__list-item-2--- ltn__list-item-2-before--- ltn__plot-brief">
+                                                    <li><span>{{product.bedrooms}}</span>
+                                                        Y.odası
+                                                    </li>
+                                                    <li><span>{{product.bathrooms}}</span>
+                                                        Banyo
+                                                    </li>
+                                                    <li><span>{{product.m2}}</span>
+                                                        square Ft
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                            <div class="product-info-bottom">
+                                                <div class="product-price">
+                                                    <span>TL {{product.price}}<label>| Taşhan Emlak</label></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="liton_product_list">
+                            <div class="ltn__product-tab-content-inner ltn__product-list-view">
+                                <div class="row">
+                                    {% for product in products %}
+                                    <input hidden name="t1" value="{{product.type}}">
+                                    <input hidden name="c1" value="{{product.category}}">
+                                    <div class="col-lg-12">
+                                        <div class="ltn__product-item ltn__product-item-4 ltn__product-item-5">
+                                            <div class="product-img">
+                                                <a href="product-details.html"><img src="{% if product.image %}{{ product.image.url }}{% else %}{% endif %}" alt="#"></a>
+                                            </div>
+                                            <div class="product-info">
+                                                <div class="product-badge-price">
+                                                    <div class="product-badge">
+                                                        <ul>
+                                                            <li class="sale-badg">{{product.type}}</li>
+                                                        </ul>
+                                                    </div>
+                                                    <div class="product-price">
+                                                        <span>TL {{product.price}}<label></label></span>
+                                                    </div>
+                                                </div>
+                                                <h2 class="product-title"><a href="product-details.html">{{product.name}}</a></h2>
+                                                <div class="product-img-location">
+                                                    <ul>
+                                                        <li>
+                                                            <a href="locations.html"><i class="flaticon-pin"></i> {{product.region}}</a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                                <ul class="ltn__list-item-2--- ltn__list-item-2-before--- ltn__plot-brief">
+                                                    <li><span>{{product.bedrooms}}</span>
+                                                        Y.odası
+                                                    </li>
+                                                    <li><span>{{product.bathrooms}}</span>
+                                                        Banyo
+                                                    </li>
+                                                    <li><span>{{product.m2}}</span>
+                                                        square Ft
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                            <div class="product-info-bottom">
+                                                <div class="real-estate-agent">
+                                                    <div class="agent-img">
+                                                        <a href="team-details.html"><img width="300" height="50" src="{% if product.agent.image %}{{ product.agent.image.url }}{% else %}{% endif %}" alt="#"></a>
+                                                    </div>
+                                                    <div class="agent-brief">
+                                                        <h6><a href="team-details.html">{{product.agent}}</a></h6>
+                                                        <small>Uzman Personel</small>
+                                                    </div>
+                                                </div>
+                                                <div class="product-hover-action">
+                                                    <ul>
+                                                        <li>
+                                                            <a href="#" title="Quick View" data-bs-toggle="modal" data-bs-target="#quick_view_modal">
+                                                                <i class="flaticon-expand"></i>
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="#" title="Wishlist" data-bs-toggle="modal" data-bs-target="#liton_wishlist_modal">
+                                                                <i class="flaticon-heart-1"></i></a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="product-details.html" title="Product Details">
+                                                                <i class="flaticon-add"></i>
+                                                            </a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--div class="ltn__pagination-area text-center">
+                        <div class="ltn__pagination">
+                            <ul>
+                                <li><a href="#"><i class="fas fa-angle-double-left"></i></a></li>
+                                <li><a href="#">1</a></li>
+                                <li class="active"><a href="#">2</a></li>
+                                <li><a href="#">3</a></li>
+                                <li><a href="#">...</a></li>
+                                <li><a href="#">10</a></li>
+                                <li><a href="#"><i class="fas fa-angle-double-right"></i></a></li>
+                            </ul>
+                        </div>
+                    </div-->
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+
+{% endblock %}
+
+
+
+
+{% block jss %}
+{% endblock %}

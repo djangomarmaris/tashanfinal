@@ -1,17 +1,50 @@
+/* Contact Form Dynamic */
 
-   var map;
-    map = new GMaps({
-        el: '#map',
-        lat: 21.2334329,
-        lng: 72.86372,
-        scrollwheel: false
-    });
+$(function() {
 
-    map.addMarker({
-        lat: 21.2334329,
-        lng: 72.86372,
-        title: 'Marker with InfoWindow',
-        infoWindow: {
-            content: '<p>Advisor Melbourne, Merrick Way, <br>FL 12345 Australia<a href="#"  target="_blank">Themeforest</a></p>'
-        }
-    });    
+	// Get the form.
+	var form = $('#contact-form');
+
+	// Get the messages div.
+	var formMessages = $('.form-messege');
+
+	// Set up an event listener for the contact form.
+	$(form).submit(function(e) {
+		// Stop the browser from submitting the form.
+		e.preventDefault();
+
+		// Serialize the form data.
+		var formData = $(form).serialize();
+
+		// Submit the form using AJAX.
+		$.ajax({
+			type: 'POST',
+			url: $(form).attr('action'),
+			data: formData
+		})
+		.done(function(response) {
+			// Make sure that the formMessages div has the 'success' class.
+			$(formMessages).removeClass('error');
+			$(formMessages).addClass('success');
+
+			// Set the message text.
+			$(formMessages).text(response);
+
+			// Clear the form.
+			$('#contact-form input,#contact-form textarea').val('');
+		})
+		.fail(function(data) {
+			// Make sure that the formMessages div has the 'error' class.
+			$(formMessages).removeClass('success');
+			$(formMessages).addClass('error');
+
+			// Set the message text.
+			if (data.responseText !== '') {
+				$(formMessages).text(data.responseText);
+			} else {
+				$(formMessages).text('Oops! An error occured and your message could not be sent.');
+			}
+		});
+	});
+
+});

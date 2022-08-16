@@ -9,7 +9,7 @@
 {% block seo %}
 
 
-<title>Filter</title>
+<title>Tashan Emlak Arama Sonuçları</title>
 
 <meta name="description" content="" />
 
@@ -33,140 +33,249 @@
 
 
 {% block content %}
-<section class="property-query-area bg_light">
-  <div class="container">
-    <div class="row">
-      <form class="callus" method="get" action="/tashan-emlak/filter/">
-        {% csrf_token %}
-        <div class="col-md-3 col-sm-6">
-          <div class="single-query form-group">
-            <div class="intro">
-              <select name="city" >
-                <option selected="" value="Muğla">Şehir</option>
-                {% for product in citys %}
-                <option  value="{{product.name}}">{{product.name}}</option>
-                {% endfor %}
-              </select>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4 col-sm-6">
-          <div class="single-query form-group">
-            <div class="intro">
-              <select name="region">
-                <option selected="" value="">İlçe</option>
-                {% for product in regions %}
-                <option  value="{{product.name}}">{{product.name}}</option>
-                {% endfor %}
-              </select>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4 col-sm-6">
-          <div class="single-query form-group">
-            <div class="intro">
-              <select name="type">
-                <option class="active">Tipi</option>
-                {% for product in types %}
-                <option value="{{product.name}}">{{product.name}}</option>
-                {% endfor %}
-              </select>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-3 col-sm-6">
-          <div class="single-query form-group">
-            <div class="intro">
-              <select name="model">
-                <option class="active">Model</option>
-                {% for model in categorys %}
-                <option value="{{model.name}}">{{model.name}}</option>
-
-                {% endfor %}
-              </select>
-            </div>
-          </div>
-        </div>
-
-
-
-        <div class="col-md-4 col-sm-6">
-          <div class="row">
-            <div class="col-sm-6">
-              <div class="single-query form-group">
-                <input required name="min" type="text" class="keyword-input" placeholder="Min M2 (sq ft)">
-              </div>
-            </div>
-            <div class="col-sm-6">
-              <div class="single-query form-group">
-                <input name="max" type="text" class="keyword-input" placeholder="Max M2 (sq ft)">
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="row">
-            <div class="col-md-8">
-              <div class="single-query-slider">
-                <label>Fiyat Aralığı:</label>
-                <div class="price text-right">
-                  <span>TL</span>
-                  <div class="leftLabel"></div>
-                  <span>to TL</span>
-                  <div class="rightLabel" id="demo"></div>
+<div class="ltn__breadcrumb-area text-left bg-overlay-white-30 bg-image "  data-bs-bg="{% static 'img/bg/20.jpg' %}">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="ltn__breadcrumb-inner">
+                        <h1 class="page-title">Sonuçlar</h1>
+                        <div class="ltn__breadcrumb-list">
+                            <ul>
+                                <li><a href="/tashan-emlak/about/"><span class="ltn__secondary-color"><i class="fas fa-home"></i></span> Ana Sayfa</a></li>
+                                <li>Sonuçlar</li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
-                <div class="slidecontainer">
-                  <input name="price" type="range" min="500000" max="10000000" step="250000" value="50" class="slider" id="myRange">
-                </div>
-              </div>
             </div>
-            <div class="col-md-4 text-right form-group">
-              <button type="submit" class="btn-blue border_radius top15">Ara</button>
-            </div>
-          </div>
         </div>
-      </form>
     </div>
-  </div>
-</section>
-<section id="deal" class="padding">
-  <div class="container">
-    <div class="row">
-      <div class="col-sm-12">
-        <h2 class="uppercase">Best Deal Properties</h2>
-        <p class="heading_space">We have Properties in these Areas View a list of Featured Properties.</p>
-      </div>
-    </div>
-    <div class="row">
-      {% for product in products %}
-      <div class="col-sm-6">
-      <div class="listing_full">
-            <div class="image">
-              <img alt="image" src="{% if product.image %}{{ product.image.url }}{% else %}{% endif %}">
-              <span class="tag_t">{{product.type}}</span>
-            </div>
-            <div class="listing_full_bg">
-              <div class="listing_inner_full">
-                <span><a href="#."><i class="icon-like"></i></a></span>
-                <a href="property_detail1.html">
-                  <h3>{{product.name}}</h3>
-                  <p>{{product.region}}</p>
-                </a>
-                <div class="favroute clearfix">
-                  <div class="property_meta"><span><i class="icon-select-an-objecto-tool"></i>{{product.m2}} sq ft</span><span><i class=" icon-bed"></i>{{product.bathrooms}} Y.Odası</span><span><i class="icon-safety-shower"></i>{{product.bedrooms}} Banyo</span><span class="border-l">TL {{product.price}}</span></div>
+<div class="ltn__car-dealer-form-area mt--65 mt-120 pb-115---">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="ltn__car-dealer-form-tab">
+                        <div class="ltn__tab-menu  text-uppercase d-none">
+                            <div class="nav">
+                                <a class="active show" data-bs-toggle="tab" href="#ltn__form_tab_1_1"><i class="fas fa-car"></i>Find A Car</a>
+                                <a data-bs-toggle="tab" href="#ltn__form_tab_1_2" class=""><i class="far fa-user"></i>Get a Dealer</a>
+                            </div>
+                        </div>
+                        <div class="tab-content bg-white box-shadow-1 ltn__border position-relative pb-10">
+                            <div class="tab-pane fade active show" id="ltn__form_tab_1_1">
+                                <div class="car-dealer-form-inner">
+                                    <form method="get" action="/tashan-emlak/filter/" class="ltn__car-dealer-form-box row">
+                                        {% csrf_token %}
+                                        <div class="ltn__car-dealer-form-item ltn__custom-icon---- ltn__icon-car---- col-lg-4 col-md-3">
+                                            <select name="city" class="nice-select">
+                                                {% for product in citys %}
+                                                <option  value="{{product.name}}">{{product.name}}</option>
+                                                {% endfor %}
+                                            </select>
+                                        </div>
+                                        <div class="ltn__car-dealer-form-item ltn__custom-icon---- ltn__icon-meter---- col-lg-4 col-md-3">
+                                            <select name="region" class="nice-select">
+                                                {% for product in regions %}
+                                                <option  value="{{product.name}}">{{product.name}}</option>
+                                                {% endfor %}
+                                            </select>
+                                        </div>
+                                        <div class="ltn__car-dealer-form-item ltn__custom-icon---- ltn__icon-calendar---- col-lg-4 col-md-3">
+                                            <select name="type" class="nice-select">
+                                                {% for product in types %}
+                                                <option value="{{product.name}}">{{product.name}}</option>
+                                                {% endfor %}
+                                            </select>
+                                        </div>
+                                        <div class="ltn__car-dealer-form-item ltn__custom-icon---- ltn__icon-calendar---- col-lg-4 col-md-3">
+                                              <select name="model" class="nice-select">
+                                                  {% for model in categorys %}
+                                                    <option value="{{model.name}}">{{model.name}}</option>
+                                                  {% endfor %}
+                                              </select>
+                                          </div>
+                                        <div class="ltn__car-dealer-form-item ltn__custom-icon ltn__icon-calendar col-lg-4 col-md-6">
+                                            <div class="btn-wrapper text-center mt-0">
+                                                <button type="submit" class="btn theme-btn-1 btn-effect-1 text-uppercase">Detaylı Ara</button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
                 </div>
-              </div>
             </div>
-          </div>
-      </div>
-      {% endfor %}
+        </div>
+    </div>
+<br>
+<br>
+<form class="callus" method="get" action="/tashan-emlak/price/">
+  {% csrf_token %}
+<div class="ltn__product-area ltn__product-gutter mb-100">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="ltn__shop-options">
+                        <ul>
+                            <li>
+                                <div class="ltn__grid-list-tab-menu ">
+                                    <div class="nav">
+                                        <a class="active show" data-bs-toggle="tab" href="#liton_product_grid"><i class="fas fa-th-large"></i></a>
+                                        <a data-bs-toggle="tab" href="#liton_product_list"><i class="fas fa-list"></i></a>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                               <div class="short-by text-center">
+                                   <select name="render" class="nice-select">
+                                      <option value="HİGH">Fiyat (Önce Yüksek)</option>
+                                      <option value="LOW">Fiyat (Önce Düşük)</option>
+                                    </select>
+                                </div>
+                            </li>
+                            <li>
+                               <div class="showing-product-number text-right">
+                                    <button type="submit" class="btn theme-btn-1 btn-effect-1 text-uppercase">Sırala</button>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="tab-content">
+                        <div class="tab-pane fade active show" id="liton_product_grid">
+                            <div class="ltn__product-tab-content-inner ltn__product-grid-view">
+                                <div class="row">
+                                    {% for product in products %}
+                                    <input hidden name="t1" value="{{product.type}}">
+                                    <input hidden name="c1" value="{{product.category}}">
+                                    <div class="col-lg-4 col-sm-6 col-12">
+                                        <div class="ltn__product-item ltn__product-item-4 ltn__product-item-5 text-center---">
+                                            <div class="product-img">
+                                                <a href="{{product.get_absolute_url}}"><img src="{% if product.image %}{{ product.image.url }}{% else %}{% endif %}" alt="#"></a>
+                                                <div class="real-estate-agent">
+                                                    <div class="agent-img">
+                                                        <a href="{{product.get_absolute_url}}"><img width="300" height="50" src="{% if product.agent.image %}{{ product.agent.image.url }}{% else %}{% endif %}" alt="#"></a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="product-info">
+                                                <div class="product-badge">
+                                                    <ul>
+                                                        <li class="sale-badg">{{product.type}}</li>
+                                                    </ul>
+                                                </div>
+                                                <h2 class="product-title"><a href="{{product.get_absolute_url}}">{{product.name}}</a></h2>
+                                                <div class="product-img-location">
+                                                    <ul>
+                                                        <li>
+                                                            <a href="locations.html"><i class="flaticon-pin"></i> {{product.region}}</a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                                <ul class="ltn__list-item-2--- ltn__list-item-2-before--- ltn__plot-brief">
+                                                    <li><span>{{product.bedrooms}}</span>
+                                                        Y.odası
+                                                    </li>
+                                                    <li><span>{{product.bathrooms}}</span>
+                                                        Banyo
+                                                    </li>
+                                                    <li><span>{{product.m2}}</span>
+                                                        square Ft
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                            <div class="product-info-bottom">
+                                                <div class="product-price">
+                                                    <span>TL {{product.price}}<label>| Taşhan Emlak</label></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="liton_product_list">
+                            <div class="ltn__product-tab-content-inner ltn__product-list-view">
+                                <div class="row">
+                                    {% for product in products %}
+                                    <input hidden name="t1" value="{{product.type}}">
+                                    <input hidden name="c1" value="{{product.category}}">
+                                    <div class="col-lg-12">
+                                        <div class="ltn__product-item ltn__product-item-4 ltn__product-item-5">
+                                            <div class="product-img">
+                                                <a href="product-details.html"><img src="{% if product.image %}{{ product.image.url }}{% else %}{% endif %}" alt="#"></a>
+                                            </div>
+                                            <div class="product-info">
+                                                <div class="product-badge-price">
+                                                    <div class="product-badge">
+                                                        <ul>
+                                                            <li class="sale-badg">{{product.type}}</li>
+                                                        </ul>
+                                                    </div>
+                                                    <div class="product-price">
+                                                        <span>TL {{product.price}}<label></label></span>
+                                                    </div>
+                                                </div>
+                                                <h2 class="product-title"><a href="product-details.html">{{product.name}}</a></h2>
+                                                <div class="product-img-location">
+                                                    <ul>
+                                                        <li>
+                                                            <a href="locations.html"><i class="flaticon-pin"></i> {{product.region}}</a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                                <ul class="ltn__list-item-2--- ltn__list-item-2-before--- ltn__plot-brief">
+                                                    <li><span>{{product.bedrooms}}</span>
+                                                        Y.odası
+                                                    </li>
+                                                    <li><span>{{product.bathrooms}}</span>
+                                                        Banyo
+                                                    </li>
+                                                    <li><span>{{product.m2}}</span>
+                                                        square Ft
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                            <div class="product-info-bottom">
+                                                <div class="real-estate-agent">
+                                                    <div class="agent-img">
+                                                        <a href="team-details.html"><img width="300" height="50" src="{% if product.agent.image %}{{ product.agent.image.url }}{% else %}{% endif %}" alt="#"></a>
+                                                    </div>
+                                                    <div class="agent-brief">
+                                                        <h6><a href="team-details.html">{{product.agent}}</a></h6>
+                                                        <small>Uzman Personel</small>
+                                                    </div>
+                                                </div>
 
+                                            </div>
+                                        </div>
+                                    </div>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--div class="ltn__pagination-area text-center">
+                        <div class="ltn__pagination">
+                            <ul>
+                                <li><a href="#"><i class="fas fa-angle-double-left"></i></a></li>
+                                <li><a href="#">1</a></li>
+                                <li class="active"><a href="#">2</a></li>
+                                <li><a href="#">3</a></li>
+                                <li><a href="#">...</a></li>
+                                <li><a href="#">10</a></li>
+                                <li><a href="#"><i class="fas fa-angle-double-right"></i></a></li>
+                            </ul>
+                        </div>
+                    </div-->
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
 
-      </div>
-  </div>
-
-
-</section>
 {% endblock %}
 
 

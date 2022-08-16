@@ -1,0 +1,144 @@
+{% extends "base.html" %}
+
+{% load static i18n %}
+{% load humanize %}
+{% block css %}
+
+{% endblock %}
+
+{% block seo %}
+
+
+<title>Tashan Emlak DETAY</title>
+
+<meta name="description" content="" />
+
+<meta name="keywords" content="" />
+
+<link rel="canonical" href=""/>
+
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+
+<meta name="robots" content="index,follow"/>
+
+<meta name="googlebot" content="index,follow"/>
+
+<meta name="author" content="İhsan Gürol Demirtaş">
+
+<meta name="publisher" content="2020.01" />
+
+{% endblock %}
+
+
+
+
+{% block content %}
+ <!-- BREADCRUMB AREA START -->
+    <div class="ltn__breadcrumb-area text-left bg-overlay-white-30 bg-image mb-0"  data-bs-bg="{% static 'img/bg/20.jpg' %}">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="ltn__breadcrumb-inner">
+                        <h1 class="page-title">Tarafımızca Tamamlanmış İşler</h1>
+                        <div class="ltn__breadcrumb-list">
+                            <ul>
+                                <li><a href="/"><span class="ltn__secondary-color"><i class="fas fa-home"></i></span> Ana Sayfa</a></li>
+                                <li>Tamamlanmış İşler</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- BREADCRUMB AREA END -->
+
+    <!-- IMAGE SLIDER AREA START (img-slider-3) -->
+    <div class="ltn__img-slider-area mb-90">
+        <div class="container-fluid">
+            <div class="row ltn__image-slider-5-active slick-arrow-1 slick-arrow-1-inner ltn__no-gutter-all">
+              {% for x in products %}
+                <div class="col-lg-12">
+                    <div class="ltn__img-slide-item-4">
+                        <a href="{% if x.image %}{{ x.image.url }}{% else %}{% endif %}" data-rel="lightcase:myCollection">
+                            <img src="{% if x.image %}{{ x.image.url }}{% else %}{% endif %}" alt="Image">
+                        </a>
+                    </div>
+                </div>
+              {% endfor %}
+
+            </div>
+        </div>
+    </div>
+    <!-- IMAGE SLIDER AREA END -->
+
+    <!-- SHOP DETAILS AREA START -->
+    <div class="ltn__shop-details-area pb-10">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-md-12">
+                    <div class="ltn__shop-details-inner ltn__page-details-inner mb-60">
+                        <div class="ltn__blog-meta">
+                            <ul>
+                                <li class="ltn__blog-category">
+                                    <a href="#">{{product.category}}</a>
+                                </li>
+                                <li class="ltn__blog-category">
+                                    <a class="bg-orange" href="#">{{product.type}}</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <h1>Taşhan İnşaat Emlak </h1>
+                        <label><span class="ltn__secondary-color"><i class="flaticon-pin"></i></span> Değer Katan Yapılar</label>
+                        <p>Taşhan İnşaat Emlak olarak, merkezi Aydın’da olan kuruluşumuzda 2016 yılından beri hizmet vermekte ve sektöre değerli katkılarda bulunmaktayız. Kurulduğu ilk günden beri ileri teknoloji, verimli iş gücü, yüksek hizmet anlayışı ve yenilikleri, çalışma prensibimize dahil ederek projelerimizi hayata geçiriyoruz. Yaşamsal işlevler ve ince detayların önemini gözeterek üreten, ülkesine değer katmayı amaçlayan bir kuruluşuz.
+Zirve hizmet anlayışını benimseyerek kurduğumuz uzman kadromuz ve eğitimli çalışanlarımızla; müşteri memnuniyeti ve güvenilirlik odaklı çalışmamız ile her zaman kaliteli ve özgün projeleri hayata geçirmeyi hedefliyoruz. Sürekli yenilik ve mükemmellik odaklı yaklaşımımızla bu hedefleri en üst düzeyde gerçekleştirmek en önemli değerlerimizden biridir.</p>
+
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <aside class="sidebar ltn__shop-sidebar ltn__right-sidebar---">
+                        <!-- Author Widget -->
+                        <div class="widget ltn__author-widget">
+                            <div class="ltn__author-widget-inner text-center">
+                                <img src="{% static 'mehmet.jpeg' %}" alt="Image">
+                                <h5>Mehmet Karancı</h5>
+                                <small>Müteahhit</small>
+                                <div class="product-ratting">
+                                    <ul>
+                                        <li><a href="#"><i class="fas fa-star"></i></a></li>
+                                        <li><a href="#"><i class="fas fa-star"></i></a></li>
+                                        <li><a href="#"><i class="fas fa-star"></i></a></li>
+                                      <li><a href="#"><i class="fas fa-star"></i></a></li>
+                                      <li><a href="#"><i class="fas fa-star"></i></a></li>
+                                    </ul>
+                                </div>
+                                <p>Değere Değer Katan birlikteliklerle.</p>
+                                <div class="ltn__social-media">
+                                    <ul>
+                                        <li><a href="#" title="Facebook"><i class="fab fa-facebook-f"></i></a></li>
+                                        <li><a href="#" title="Twitter"><i class="fab fa-instagram"></i></a></li>
+
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </aside>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+{% endblock %}
+
+
+
+{% block jss %}
+
+
+{% endblock %}

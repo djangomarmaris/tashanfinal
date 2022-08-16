@@ -38,6 +38,8 @@ EMAIL_USE_TLS = True
 # Application definition
 
 INSTALLED_APPS = [
+
+    'places',
     'jazzmin',
     'modeltranslation',
     'crispy_forms',
@@ -47,6 +49,7 @@ INSTALLED_APPS = [
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
+    'django.contrib.humanize',
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'realestate',
@@ -117,13 +120,13 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/3.1/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'tr'
 
 TIME_ZONE = 'UTC'
 
 USE_I18N = True
 
-USE_L10N = True
+USE_L10N = False
 
 USE_TZ = True
 
@@ -163,3 +166,8 @@ CKEDITOR_CONFIGS = {
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 CART_SESSION_ID = 'cart'
+
+PLACES_MAPS_API_KEY='AIzaSyCAU04egw4BV7km46b8mBvp28ynZTkBym4'
+PLACES_MAP_WIDGET_HEIGHT=480
+PLACES_MAP_OPTIONS='{"center": { "lat": 38.971584, "lng": -95.235072 }, "zoom": 10}'
+PLACES_MARKER_OPTIONS='{"draggable": true}'

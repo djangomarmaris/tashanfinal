@@ -1,140 +1,202 @@
 {% load static i18n %}
 
-<div class="loader">
-  <div class="span">
-    <div class="location_indicator"></div>
-  </div>
-</div>
- <!--Loader-->
+<div class="body-wrapper">
 
 
+    <header class="ltn__header-area ltn__header-5 ltn__header-transparent--- gradient-color-4---">
+        <!-- ltn__header-top-area start -->
+        <div class="ltn__header-top-area section-bg-8 top-area-color-white---">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-7">
+                        <div class="ltn__top-bar-menu">
+                            <ul>
+                                <li><a href="mailto:info@tashanemlakinsaat.com"><i class="icon-mail"></i>info@tashanemlakinsaat.com</a></li>
+                                <li><a href="locations.html"><i class="icon-placeholder"></i> Armutalan Mahallesi. Adnan Menderes Caddesi No: 74C Marmaris / Muğla</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-5">
+                        <div class="top-bar-right text-end">
+                            <div class="ltn__top-bar-menu">
+                                <ul>
+                                    <li class="d-none">
+                                        <!-- ltn__language-menu -->
+                                        <div class="ltn__drop-menu ltn__currency-menu ltn__language-menu">
+                                            <ul>
+                                                <li><a href="#" class="dropdown-toggle"><span class="active-currency">English</span></a>
+                                                    <ul>
+                                                        <li><a href="#">Arabic</a></li>
+                                                        <li><a href="#">Bengali</a></li>
+                                                        <li><a href="#">Chinese</a></li>
+                                                        <li><a href="#">English</a></li>
+                                                        <li><a href="#">French</a></li>
+                                                        <li><a href="#">Hindi</a></li>
+                                                    </ul>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <!-- ltn__social-media -->
+                                        <div class="ltn__social-media">
+                                            <ul>
+                                                <li><a href="#" title="Facebook"><i class="fab fa-facebook-f"></i></a></li>
 
-<!--Header-->
-<header class="white_header">
-  <div class="topbar default_clr">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-4">
-          <p>We are Best in Town With 40 years of Experience.</p>
+
+                                                <li><a href="#" title="Instagram"><i class="fab fa-instagram"></i></a></li>
+
+                                            </ul>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <!-- header-top-btn -->
+                                        <div class="header-top-btn">
+                                            <a href="/tashan-emlak/contact/">Bize Hemen Yaz</a>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="col-md-8 text-right">
+        <!-- ltn__header-top-area end -->
 
-          <ul class="social_share left15">
-            <li><a href="javascript:void(0)" class="facebook"><i class="icon-facebook-1"></i></a></li>
-            <li><a href="javascript:void(0)" class="twitter"><i class="icon-twitter-1"></i></a></li>
-            <li><a href="javascript:void(0)" class="google"><i class="icon-instagram"></i></a></li>
-          </ul>
+        <!-- ltn__header-middle-area start -->
+        <div class="ltn__header-middle-area ltn__header-sticky ltn__sticky-bg-white">
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                        <div class="site-logo-wrap">
+                            <div class="site-logo">
+                                <a href="/"><img src="{% static 'main.png' %}" alt="Logo"></a>
+                            </div>
+                            <div class="get-support clearfix d-none">
+                                <div class="get-support-icon">
+                                    <i class="icon-call"></i>
+                                </div>
+                                <div class="get-support-info">
+                                    <h6>Get Support</h6>
+                                    <h4><a href="tel:+123456789">123-456-789-10</a></h4>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col header-menu-column">
+                        <div class="header-menu d-none d-xl-block">
+                            <nav>
+                                <div class="ltn__main-menu">
+                                    <ul>
+                                        <li class="menu-icon"><a href="/">Ana Sayfa</a>
+
+                                        </li>
+                                         <li class="menu-icon"><a href="/tashan-emlak/works/">İnşaat</a>
+
+                                        </li>
+                                        <li class="menu-icon"><a href="#">Satılık</a>
+                                            <ul>
+                                                {% for product in sender %}
+                                                <li><a href="/tashan-emlak/property/list/sale/{{product.slug}}">{{product.name}}</a></li>
+                                                {% endfor %}
+                                            </ul>
+                                        </li>
+                                        <li class="menu-icon"><a href="#">Kiralık</a>
+                                            <ul>
+                                                {% for product in sender %}
+                                                <li><a href="/tashan-emlak/property/list/rent/{{product.slug}}">{{product.name}}</a></li>
+                                                {% endfor %}
+
+                                            </ul>
+                                        </li>
+                                        <li class="menu-icon"><a href="/tashan-emlak/about/">Hakkımızda</a>
+                                        </li>
+                                        <li class="menu-icon"><a href="/tashan-emlak/contact/">İletişim</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </nav>
+                        </div>
+                    </div>
+                    <div class="col ltn__header-options ltn__header-options-2 mb-sm-20">
+                        <!-- header-search-1 -->
+
+                        <div class="mobile-menu-toggle d-xl-none">
+                            <a href="#ltn__utilize-mobile-menu" class="ltn__utilize-toggle">
+                                <svg viewBox="0 0 800 600">
+                                    <path d="M300,220 C300,220 520,220 540,220 C740,220 640,540 520,420 C440,340 300,200 300,200" id="top"></path>
+                                    <path d="M300,320 L540,320" id="middle"></path>
+                                    <path d="M300,210 C300,210 520,210 540,210 C740,210 640,530 520,410 C440,330 300,190 300,190" id="bottom" transform="translate(480, 320) scale(1, -1) translate(-480, -318) "></path>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
-  </div>
-  <nav class="navbar navbar-default navbar-sticky bootsnav">
-    <div class="container">
-      <div class="attr-nav">
-        <div class="upper-column info-box first">
-          <div class="icons"><i class="icon-icons202"></i></div>
-          <ul>
-            <li><strong>İletişim Numaramız</strong></li>
-            <li>+90 542 425 83 39</li>
-          </ul>
-        </div>
-      </div>
-      <!-- Start Header Navigation -->
-      <div class="navbar-header">
-        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-menu">
-        <i class="fa fa-bars"></i>
-        </button>
-        <a class="navbar-brand" href="/"><img src="{% static 'mainlogo.png' %}" class="logo" alt=""></a>
-      </div><!-- End Header Navigation -->
-      <div class="collapse navbar-collapse" id="navbar-menu">
-        <ul class="nav navbar-nav navbar-right" data-in="fadeIn" data-out="fadeOut">
-              <li class="dropdown">
-                <a href="/" class="dropdown-toggle" data-toggle="dropdown">Ana Sayfa </a>
-              </li>
-              <li><a href="/tashan-emlak/about/">Hakkımızda</a></li>
-              <li class="dropdown megamenu-fw">
-                <a href="#." class="dropdown-toggle" data-toggle="dropdown">Satılık</a>
-                <ul class="dropdown-menu megamenu-content" role="menu">
-                  <li>
-                    <div class="row">
-                      <div class="col-menu col-md-3">
-                        <h5 class="title">Satılıklar</h5>
-                        <div class="content">
-                          <ul class="menu-col">
+        <!-- ltn__header-middle-area end -->
+    </header>
+    <!-- HEADER AREA END -->
+
+
+
+    <!-- Utilize Mobile Menu Start -->
+    <div id="ltn__utilize-mobile-menu" class="ltn__utilize ltn__utilize-mobile-menu">
+        <div class="ltn__utilize-menu-inner ltn__scrollbar">
+            <div class="ltn__utilize-menu-head">
+                <div class="site-logo">
+                    <a href="/"><img src="{% static 'main.png' %}" alt="Logo"></a>
+                </div>
+                <button class="ltn__utilize-close">×</button>
+            </div>
+            <div class="ltn__utilize-menu-search-form">
+                <form action="#">
+                    <input type="text" placeholder="Search...">
+                    <button><i class="fas fa-search"></i></button>
+                </form>
+            </div>
+            <div class="ltn__utilize-menu">
+                <ul>
+                    <li><a href="#">Ana Sayfa</a>
+
+                    </li>
+                     <li class="menu-icon"><a href="/tashan-emlak/works/">İnşaat</a>
+
+                                        </li>
+                    <li><a href="#">Satılık</a>
+                        <ul class="sub-menu">
                             {% for product in sender %}
                             <li><a href="/tashan-emlak/property/list/sale/{{product.slug}}">{{product.name}}</a></li>
                             {% endfor %}
-                          </ul>
-                        </div>
-                      </div>
-                      <!-- end col-3 -->
-                      <div class="col-menu col-md-9">
-                        <h5 class="title bottom20">Fırsat Ürünler</h5>
-                        <div class="row">
-                          <div id="nav_slider" class="owl-carousel">
-                            {% for product in saleminilistnavbar %}
-                            <div class="item">
-                              <div class="image bottom15">
-                                <img src="{% if product.image %}{{ product.image.url }}{% else %}{% endif %}" alt="Featured Property">
-                                <span class="nav_tag yellow text-uppercase">Satılık</span>
-                              </div>
-                              <h4><a href="{{product.get_absolute_url}}">{{product.name}}</a></h4>
-                              <p>{{product.region}}</p>
-                            </div>
-                            {% endfor %}
-                          </div>
-                        </div>
-                      </div>
-                      <!-- end col-3 -->
-                    </div>
-                    <!-- end row -->
-                  </li>
-                </ul>
-              </li>
-              <li class="dropdown megamenu-fw">
-                <a href="#." class="dropdown-toggle" data-toggle="dropdown">Kiralık</a>
-                <ul class="dropdown-menu megamenu-content" role="menu">
-                  <li>
-                    <div class="row">
-                      <div class="col-menu col-md-3">
-                        <h5 class="title">Kiralıklar</h5>
-                        <div class="content">
-                          <ul class="menu-col">
+                        </ul>
+                    </li>
+                    <li><a href="#">Kiralık</a>
+                        <ul class="sub-menu">
                             {% for product in sender %}
                             <li><a href="/tashan-emlak/property/list/rent/{{product.slug}}">{{product.name}}</a></li>
                             {% endfor %}
-                          </ul>
-                        </div>
-                      </div>
-                      <!-- end col-3 -->
-                      <div class="col-menu col-md-9">
-                        <h5 class="title bottom20">Fırsat Ürünler</h5>
-                        <div class="row">
-                          <div id="nav_slider" class="owl-carousel">
-                            {% for product in rentminilistnavbar %}
-                            <div class="item">
-                              <div class="image bottom15">
-                                <img src="{% if product.image %}{{ product.image.url }}{% else %}{% endif %}" alt="Featured Property">
-                                <span class="nav_tag yellow text-uppercase">Kiralık</span>
-                              </div>
-                              <h4><a href="{{product.get_absolute_url}}">{{product.name}}</a></h4>
-                              <p>{{product.region}}</p>
-                            </div>
-                            {% endfor %}
-                          </div>
-                        </div>
-                      </div>
-                      <!-- end col-3 -->
-                    </div>
-                    <!-- end row -->
-                  </li>
-                </ul>
-              </li>
 
-              <li><a href="/tashan-emlak/contact/">İletişim</a></li>
-              <li><a href="https://matterport.com/discover/space/vVRyiJGDwXb">3D</a></li>
-          </ul>
-      </div>
+                        </ul>
+                    </li>
+                    <li><a href="/tashan-emlak/about/">Hakkımızda</a>
+
+                    </li>
+                    <li><a href="/tashan-emlak/contact/">İletişim</a>
+
+
+                    </li>
+
+                </ul>
+            </div>
+
+            <div class="ltn__social-media-2">
+                <ul>
+                    <li><a href="#" title="Facebook"><i class="fab fa-facebook-f"></i></a></li>
+                    <li><a href="#" title="Twitter"><i class="fab fa-instagram"></i></a></li>
+
+                </ul>
+            </div>
+        </div>
     </div>
-  </nav>
-</header>
+</div>

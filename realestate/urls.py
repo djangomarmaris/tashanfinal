@@ -17,7 +17,9 @@ urlpatterns =[
     path('property/list/sale/<str:category_slug>/',views.product_sale,name='product_list_sale'),
     path('property/list/rent/<str:category_slug>/',views.product_rent,name='product_list_rent'),
     path('property/detail/<str:slug>/<int:id>',views.product_detail,name='product_detail'),
-    path('filter/',views.filter,name='filter')
+    path('filter/',views.filter,name='filter'),
+    path('price/',views.price,name='price'),
+    path('works/',views.work_list,name='works'),
 ]
 
 

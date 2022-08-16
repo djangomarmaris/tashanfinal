@@ -1,13 +1,16 @@
 from ckeditor_uploader.fields import RichTextUploadingField
 from django.db import models
 from django.urls import reverse
+from places.fields import PlacesField
 
 # Create your models here.
 MODEL = (
         ('Konut', 'Konut'),
         ('İş Yeri', 'İş Yeri'),
         ('Arsa', 'Arsa'),
-        ('Turizm', 'Turizm'),)
+        ('Turizm', 'Turizm'),
+        ('Bina', 'Bina'),
+        )
 
 STATUS  = (
         ('Satılık', 'Satılık'),
@@ -88,6 +91,7 @@ class Product(models.Model):
     header = models.CharField(max_length=150,default='Ürünün İsmi')
     info = RichTextUploadingField(blank=True)
     adress = models.CharField(max_length=150,default='Evin Tam Adresi')
+    location = PlacesField()
     bedrooms  = models.IntegerField(default=0)
     bathrooms = models.IntegerField(default=0)
     garage = models.BooleanField(default=False)
@@ -101,6 +105,15 @@ class Product(models.Model):
     agent = models.ForeignKey(Agent, on_delete=models.CASCADE)
     opportunity = models.BooleanField(default=False)
     slider = models.BooleanField(default=False)
+    sea = models.BooleanField(default=False, verbose_name='Denize Sıfır')
+    hospital = models.BooleanField(default=False, verbose_name='Hastane')
+    citycenter = models.BooleanField(default=False, verbose_name='Şehir Merkezi')
+    municipality = models.BooleanField(default=False, verbose_name='Belediye')
+    pharmacy = models.BooleanField(default=False, verbose_name='Eczane')
+    market = models.BooleanField(default=False, verbose_name='Market')
+    park = models.BooleanField(default=False, verbose_name='Park')
+    fitness = models.BooleanField(default=False, verbose_name='Spor Salonu')
+    mosque = models.BooleanField(default=False, verbose_name='Cami')
     seo = models.CharField(max_length=500, default="Seo için Bilgi Giriniz.")
     key = models.CharField(max_length=550, default="Keyword için Giriş")
     slug = models.SlugField(max_length=200, db_index=True)
@@ -131,6 +144,17 @@ class Images(models.Model):
     product=models.ForeignKey(Product,on_delete=models.CASCADE)
     title = models.CharField(max_length=50,blank=True)
     image = models.ImageField(blank=True, upload_to='images/')
+
+    def __str__(self):
+        return self.title
+
+
+
+
+class Works(models.Model):
+    title = models.CharField(max_length=50, blank=True)
+    image = models.ImageField(blank=True, upload_to='images/')
+
 
     def __str__(self):
         return self.title

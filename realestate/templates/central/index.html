@@ -33,373 +33,348 @@
 
 
 {% block content %}
+<div class="ltn__utilize-overlay"></div>
 
-<div class="rev_slider_wrapper">
-  <div id="rev_slider_full" class="rev_slider"  data-version="5.0" style="transition:opacity 3s.">
-    <ul>
-      {% for product in sliders %}
-      <li data-transition="fade">
-        <!-- MAIN IMAGE -->
-        <img  src="{% if product.image %}{{ product.image.url }}{% else %}{% endif %}" alt="" data-bgposition="center center" data-bgfit="cover">
-        <!-- LAYER NR. 1 -->
-        <h1 class="tp-caption tp-resizeme uppercase"
-          data-x="left" data-hoffset="15"
-          data-y="275"
-          data-transform_idle="o:1;"
-          data-transform_in="y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;s:1500;e:Power3.easeInOut;"
-          data-transform_out="auto:auto;s:1000;e:Power3.easeInOut;"
-          data-mask_in="x:0px;y:0px;s:inherit;e:inherit;"
-          data-mask_out="x:0;y:0;s:inherit;e:inherit;"
-          data-start="500"
-          data-splitin="none"
-          data-splitout="none"
-          style="z-index: 6;">{{product.name}}
-        </h1>
-        <p style="font-size:50px;" class="tp-caption  tp-resizeme"
-          data-x="left" data-hoffset="15"
-          data-y="320"
-          data-transform_idle="o:1;"
-          data-transform_in="opacity:0;s:2000;e:Power3.easeInOut;"
-          data-transform_out="opacity:0;s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;"
-          data-mask_in="x:0px;y:0px;s:inherit;e:inherit;"
-          data-mask_out="x:0;y:0;s:inherit;e:inherit;"
-          data-start="800">Taşhan Emlak Ayrıcalıklarıyla | Yılın Fırsat ürünü
-        </p>
-        <div class="tp-caption  tp-resizeme"
-          data-x="left" data-hoffset="15"
-          data-y="400"
-          data-width="full"
-          data-transform_idle="o:1;"
-          data-transform_in="y:[-100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;s:1500;e:Power3.easeInOut;"
-          data-transform_out="auto:auto;s:1000;e:Power3.easeInOut;"
-          data-mask_in="x:0px;y:0px;s:inherit;e:inherit;"
-          data-mask_out="x:0;y:0;s:inherit;e:inherit;"
-          data-start="800">
-          <a href="{{product.get_absolute_url}}" class="btn-blue border_radius uppercase active">TL {{product.price}}</a>
-          <a href="/tashan-emlak/contact/" class="btn-white border_radius uppercase">İletişim</a>
+    <!-- SLIDER AREA START (slider-3) -->
+    <div class="ltn__slider-area ltn__slider-3  section-bg-1">
+        <div class="ltn__slide-one-active slick-slide-arrow-1 slick-slide-dots-1">
+            {% for product in sliders %}
+            <div class="ltn__slide-item ltn__slide-item-2 ltn__slide-item-3-normal ltn__slide-item-3">
+                <div class="ltn__slide-item-inner">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-12 align-self-center">
+                                <div class="slide-item-info">
+                                    <div class="slide-item-info-inner ltn__slide-animation">
+                                        <div class="slide-video mb-50 d-none">
+                                            <a class="ltn__video-icon-2 ltn__video-icon-2-border" href="https://www.youtube.com/embed/tlThdr3O5Qo" data-rel="lightcase:myCollection">
+                                                <i class="fa fa-play"></i>
+                                            </a>
+                                        </div>
+                                        <h6 class="slide-sub-title white-color--- animated"><span><i class="fas fa-home"></i></span> Taşhan Emlak İnşaat</h6>
+                                        <h1 class="slide-title animated ">{{product.name}}</h1>
+                                        <div class="slide-brief animated">
+                                            <p>Taşhan Emlak Ayrıcalıklarıyla | Yılın Fırsat ürünü</p>
+                                        </div>
+                                        <div class="btn-wrapper animated">
+                                            <a href="{{product.get_absolute_url}}" class="theme-btn-1 btn btn-effect-1">TL {{product.price}} | incele</a>
+                                            <!--a class="ltn__video-play-btn bg-white" href="https://www.youtube.com/embed/HnbMYzdjuBs?autoplay=1&amp;showinfo=0" data-rel="lightcase">
+                                                <i class="icon-play  ltn__secondary-color"></i>
+                                            </a-->
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="slide-item-img">
+                                    <img src="{% if product.image %}{{ product.image.url }}{% else %}{% endif %}" alt="#">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+
         </div>
-      </li>
-      {% endfor %}
-    </ul>
-  </div>
-  <!-- END REVOLUTION SLIDER -->
-</div>
+    </div>
 
-<section class="property-query-area bg_light">
-  <div class="container">
-    <div class="row">
-      <form class="callus" method="get" action="/tashan-emlak/filter/">
-        {% csrf_token %}
-        <div class="col-md-3 col-sm-6">
-          <div class="single-query form-group">
-            <div class="intro">
-              <select name="city" >
-                <option selected="" value="Muğla">Şehir</option>
-                {% for product in citys %}
-                <option  value="{{product.name}}">{{product.name}}</option>
+<div class="ltn__car-dealer-form-area mt--65 mt-120 pb-115---">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="ltn__car-dealer-form-tab">
+                        <div class="ltn__tab-menu  text-uppercase d-none">
+                            <div class="nav">
+                                <a class="active show" data-bs-toggle="tab" href="#ltn__form_tab_1_1"><i class="fas fa-car"></i>Find A Car</a>
+                                <a data-bs-toggle="tab" href="#ltn__form_tab_1_2" class=""><i class="far fa-user"></i>Get a Dealer</a>
+                            </div>
+                        </div>
+                        <div class="tab-content bg-white box-shadow-1 ltn__border position-relative pb-10">
+                            <div class="tab-pane fade active show" id="ltn__form_tab_1_1">
+                                <div class="car-dealer-form-inner">
+                                    <form method="get" action="/tashan-emlak/filter/" class="ltn__car-dealer-form-box row">
+                                        {% csrf_token %}
+                                        <div class="ltn__car-dealer-form-item ltn__custom-icon---- ltn__icon-car---- col-lg-4 col-md-3">
+                                            <select name="city" class="nice-select">
+                                                {% for product in citys %}
+                                                <option  value="{{product.name}}">{{product.name}}</option>
+                                                {% endfor %}
+                                            </select>
+                                        </div>
+                                        <div class="ltn__car-dealer-form-item ltn__custom-icon---- ltn__icon-meter---- col-lg-4 col-md-3">
+                                            <select name="region" class="nice-select">
+                                                {% for product in regions %}
+                                                <option  value="{{product.name}}">{{product.name}}</option>
+                                                {% endfor %}
+                                            </select>
+                                        </div>
+                                        <div class="ltn__car-dealer-form-item ltn__custom-icon---- ltn__icon-calendar---- col-lg-4 col-md-3">
+                                            <select name="type" class="nice-select">
+                                                {% for product in types %}
+                                                <option value="{{product.name}}">{{product.name}}</option>
+                                                {% endfor %}
+                                            </select>
+                                        </div>
+                                        <div class="ltn__car-dealer-form-item ltn__custom-icon---- ltn__icon-calendar---- col-lg-4 col-md-3">
+                                              <select name="model" class="nice-select">
+                                                  {% for model in categorys %}
+                                                    <option value="{{model.name}}">{{model.name}}</option>
+                                                  {% endfor %}
+                                              </select>
+                                          </div>
+                                        <div class="ltn__car-dealer-form-item ltn__custom-icon ltn__icon-calendar col-lg-4 col-md-6">
+                                            <div class="btn-wrapper text-center mt-0">
+                                                <button type="submit" class="btn theme-btn-1 btn-effect-1 text-uppercase">Detaylı Ara</button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<div class="ltn__product-slider-area ltn__product-gutter pt-115 pb-70">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="section-title-area ltn__section-title-2--- text-center">
+                        <h6 class="section-subtitle section-subtitle-2 ltn__secondary-color">Gayrimenkul</h6>
+                        <h1 class="section-title">Son Eklenen Taşınmazlarımız</h1>
+                    </div>
+                </div>
+            </div>
+            <div class="row ltn__product-slider-item-three-active--- slick-arrow-1">
+                {% for product in products %}
+                <div class="col-xl-4 col-sm-6 col-12">
+                    <div class="ltn__product-item ltn__product-item-4 ltn__product-item-5 text-center---">
+                        <div class="product-img">
+                            <a href="{{product.get_absolute_url}}"><img src="{% if product.image %}{{ product.image.url }}{% else %}{% endif %}" alt="#"></a>
+                            <div class="real-estate-agent">
+                                <div class="agent-img">
+                                    <a href="{{product.get_absolute_url}}"><img width="300" height="50" src="{% if product.agent.image %}{{ product.agent.image.url }}{% else %}{% endif %}" alt="#"></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="product-info">
+                            <div class="product-badge">
+                                <ul>
+                                    <li class="sale-badg">{{product.type}}</li>
+                                </ul>
+                            </div>
+                            <h2 class="product-title"><a href="{{product.get_absolute_url}}">{{product.name}}</a></h2>
+                            <div class="product-img-location">
+                                <ul>
+                                    <li>
+                                        <a href="locations.html"><i class="flaticon-pin"></i> {{product.adress}}</a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <ul class="ltn__list-item-2--- ltn__list-item-2-before--- ltn__plot-brief">
+                                <li><span>{{product.bedrooms}} </span>
+                                    Y.Odası
+                                </li>
+                                <li><span>{{product.bathrooms}} </span>
+                                    Banyo
+                                </li>
+                                <li><span>{{product.m2}} </span>
+                                    Square Ft
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="product-info-bottom">
+                            <div class="product-price">
+                                <span>$ {{product.price}}<label></label></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 {% endfor %}
-              </select>
+
             </div>
-          </div>
         </div>
-        <div class="col-md-4 col-sm-6">
-          <div class="single-query form-group">
-            <div class="intro">
-              <select name="region">
-                <option selected="" value="">İlçe</option>
-                {% for product in regions %}
-                <option  value="{{product.name}}">{{product.name}}</option>
+    </div>
+<div class="ltn__about-us-area pt-120 pb-90 ">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 align-self-center">
+                    <div class="about-us-img-wrap about-img-left">
+                        <img src="{% static 'about.png' %}" alt="About Us Image">
+
+                    </div>
+                </div>
+                <div class="col-lg-6 align-self-center">
+                    <div class="about-us-info-wrap">
+                        <div class="section-title-area ltn__section-title-2--- mb-20">
+                            <h6 class="section-subtitle section-subtitle-2 ltn__secondary-color">Hakkımızda</h6>
+                            <h1 class="section-title">Sektöründe Lider
+                                Bölgenin Uzmanı<span>.</span></h1>
+                            <p>Taşhan Emlak & İnşaat olarak, gerçekleştirdiğimiz her projeyi bu çağdaş bakış açılarıyla hayata geçiriyoruz. Bugüne kadar olduğu gibi, gelecekte de hayata geçireceğimiz projelerimizle sektöründe sağlam ve istikrarlı adımlarla ilerlemeye devam edeceğiz.</p>
+                        </div>
+                        <ul class="ltn__list-item-half clearfix">
+                            <li>
+                                <i class="flaticon-home-2"></i>
+                                Satış
+                            </li>
+                            <li>
+                                <i class="flaticon-mountain"></i>
+                                Kiralama
+                            </li>
+                            <li>
+                                <i class="flaticon-heart"></i>
+                                Yaşam Dostu
+                            </li>
+                            <li>
+                                <i class="flaticon-secure"></i>
+                                Müşteri Memnuniyeti
+                            </li>
+                        </ul>
+                        <div class="ltn__callout bg-overlay-theme-05  mt-30">
+                            <p>Taşhan İnşaat Emlak olarak, merkezi Aydın’da olan kuruluşumuzda 2016 yılından beri hizmet vermekte ve sektöre değerli katkılarda bulunmaktayız. </p>
+                        </div>
+                        <div class="btn-wrapper animated">
+                            <a href="/tashan-emlak/about/" class="theme-btn-1 btn btn-effect-1">Hakkımızda</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<div class="ltn__counterup-area section-bg-1 pt-120 pb-70">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3 col-sm-6 align-self-center">
+                    <div class="ltn__counterup-item text-color-white---">
+                        <div class="counter-icon">
+                            <i class="flaticon-select"></i>
+                        </div>
+                        <h1><span class="counter">560</span><span class="counterUp-icon">+</span> </h1>
+                        <h6>Danışmanlık</h6>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6 align-self-center">
+                    <div class="ltn__counterup-item text-color-white---">
+                        <div class="counter-icon">
+                            <i class="flaticon-office"></i>
+                        </div>
+                        <h1><span class="counter">197</span><span class="counterUp-letter">K</span><span class="counterUp-icon">+</span> </h1>
+                        <h6>Kiralama</h6>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6 align-self-center">
+                    <div class="ltn__counterup-item text-color-white---">
+                        <div class="counter-icon">
+                            <i class="flaticon-excavator"></i>
+                        </div>
+                        <h1><span class="counter">268</span><span class="counterUp-icon">+</span> </h1>
+                        <h6>Taahhüt</h6>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6 align-self-center">
+                    <div class="ltn__counterup-item text-color-white---">
+                        <div class="counter-icon">
+                            <i class="flaticon-armchair"></i>
+                        </div>
+                        <h1><span class="counter">340</span><span class="counterUp-icon">+</span> </h1>
+                        <h6>Satış</h6>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<div class="ltn__testimonial-area section-bg-1--- bg-image-top pt-115 pb-70" data-bs-bg="img/bg/20.jpg">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="section-title-area ltn__section-title-2--- text-center">
+                        <h6 class="section-subtitle section-subtitle-2 ltn__secondary-color">Müşteri</h6>
+                        <h1 class="section-title">Dönüşlermiz.</h1>
+                    </div>
+                </div>
+            </div>
+            <div class="row ltn__testimonial-slider-5-active slick-arrow-1">
+                {% for comment in comments %}
+                <div class="col-lg-4">
+                    <div class="ltn__testimonial-item ltn__testimonial-item-7">
+                        <div class="ltn__testimoni-info">
+                            <p><i class="flaticon-left-quote-1"></i>
+                              {{comment.comment}}</p>
+                            <div class="ltn__testimoni-info-inner">
+                                <div class="ltn__testimoni-img">
+                                    <img src="{{comment.image.url}}" alt="#">
+                                </div>
+                                <div class="ltn__testimoni-name-designation">
+                                    <h5>{{comment.name}}</h5>
+                                    <label>{{comment.postion}}</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 {% endfor %}
-              </select>
+
+                <!--  -->
             </div>
-          </div>
         </div>
-        <div class="col-md-4 col-sm-6">
-          <div class="single-query form-group">
-            <div class="intro">
-              <select name="type">
-                <option class="active">Tipi</option>
-                {% for product in types %}
-                <option value="{{product.name}}">{{product.name}}</option>
+    </div>
+<div class="ltn__blog-area pt-115--- pb-70">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="section-title-area ltn__section-title-2--- text-center">
+                        <h6 class="section-subtitle section-subtitle-2 ltn__secondary-color">Değelerimiz</h6>
+                        <h1 class="section-title">Uzman Ekibimiz</h1>
+                    </div>
+                </div>
+            </div>
+            <div class="row  ltn__blog-slider-one-active slick-arrow-1 ltn__blog-item-3-normal">
+                {% for agent in agents %}
+                <div class="col-lg-12">
+                    <div class="ltn__blog-item ltn__blog-item-3">
+                        <div class="ltn__blog-img">
+                            <a href="blog-details.html"><img src="{{agent.image.url}}" alt="#"></a>
+                        </div>
+                        <div class="ltn__blog-brief">
+                            <div class="ltn__blog-meta">
+                                <ul>
+                                    <li class="ltn__blog-author">
+                                        <a href="#"><i class="far fa-user"></i>{{agent.name}}</a>
+                                    </li>
+                                    <li class="ltn__blog-tags">
+                                        <a href="#"><i class="fas fa-tags"></i>Uzman </a>
+                                    </li>
+                                    <li class="ltn__blog-tags">
+                                        <a href="#"><i class="fas fa-phone"></i>Uzman | {{agent.phone}}</a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <h3 class="ltn__blog-title"><a href="blog-details.html">Taşhan inşaat Emlak.</a></h3>
+
+                        </div>
+                    </div>
+                </div>
                 {% endfor %}
-              </select>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-3 col-sm-6">
-          <div class="single-query form-group">
-            <div class="intro">
-              <select name="model">
-                <option class="active">Model</option>
-                {% for model in categorys %}
-                <option value="{{model.name}}">{{model.name}}</option>
 
-                {% endfor %}
-              </select>
             </div>
-          </div>
         </div>
+    </div>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 
 
 
-        <div class="col-md-4 col-sm-6">
-          <div class="row">
-            <div class="col-sm-6">
-              <div class="single-query form-group">
-                <input required name="min" type="text" class="keyword-input" placeholder="Min M2 (sq ft)">
-              </div>
-            </div>
-            <div class="col-sm-6">
-              <div class="single-query form-group">
-                <input name="max" type="text" class="keyword-input" placeholder="Max M2 (sq ft)">
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="row">
-            <div class="col-md-8">
-              <div class="single-query-slider">
-                <label>Fiyat Aralığı:</label>
-                <div class="price text-right">
-                  <span>TL</span>
-                  <div class="leftLabel"></div>
-                  <span>to TL</span>
-                  <div class="rightLabel" id="demo"></div>
-                </div>
-                <div class="slidecontainer">
-                  <input name="price" type="range" min="500000" max="10000000" step="250000" value="50" class="slider" id="myRange">
-                </div>
-              </div>
-            </div>
-            <div class="col-md-4 text-right form-group">
-              <button type="submit" class="btn-blue border_radius top15">Ara</button>
-            </div>
-          </div>
-        </div>
-      </form>
-    </div>
-  </div>
-</section>
 
-<section id="deal" class="padding">
-  <div class="container">
-    <div class="row">
-      <div class="col-sm-12">
-        <h2 class="uppercase">Tüm Gayrimenkullerimiz</h2>
-        <p class="heading_space">Taşhan Emlak ve İnşaat</p>
-      </div>
-    </div>
-    <div class="row">
-      {% for product in products %}
-      <div class="col-sm-6">
-      <div class="listing_full">
-            <div class="image">
-              <img alt="image" src="{% if product.image %}{{ product.image.url }}{% else %}{% endif %}">
-              <span class="tag_t">{{product.type}}</span>
-            </div>
-            <div class="listing_full_bg">
-              <div class="listing_inner_full">
-                <span><a href="#."><i class="icon-like"></i></a></span>
-                <a href="{{product.get_absolute_url}}">
-                  <h3>{{product.name}} | {{product.region}}</h3>
-                  <p>Oda Tipi : {{product.room}}</p>
-                </a>
-                <div class="favroute clearfix">
-                  <div class="property_meta"><span><i class="icon-select-an-objecto-tool"></i>{{product.m2}} sq ft</span><span><i class=" icon-bed"></i>{{product.bathrooms}} Y.Odası</span><span><i class="icon-safety-shower"></i>{{product.bedrooms}} Banyo</span><span class="border-l">₺ {{product.price}}</span></div>
-                </div>
-              </div>
-            </div>
-          </div>
-      </div>
-      {% endfor %}
-    </div>
-  </div>
-</section>
-<section id="parallax_four" class="padding">
-  <div class="container">
-    <div class="row">
-      <div class="col-sm-12 bottom30">
-        <h2 class="uppercase"><strong>"7000 'den"</strong> Fazla Mutlu Müşteri</h2>
-      </div>
-      <div class="col-sm-8 col-md-10">
-        <div class="row">
-          <div class="col-sm-6 margin40">
-             <i class="icon-presentation"></i>
-             <h4 class="bottom10">Uzman Satış Danışömanları</h4>
-             <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
-          </div>
-          <div class="col-sm-6 margin40">
-             <i class="icon-icons215"></i>
-             <h4 class="bottom10">Kalite Sorunsuz ürün teslim</h4>
-             <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-<section id="deals" class="padding bg_light">
-  <div class="container">
-    <div class="row">
-      <div class="col-sm-10">
-        <h2 class="uppercase">Fırsat ürünlerimiz</h2>
-        <p class="heading_space">Taşhan Emlak İnşaat</p>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-sm-12">
-        <div id="full-slider" class="owl-carousel">
-          {% for product in opportunitys %}
-          <div class="item">
-            <div class="media deal_media proerty_content">
-              <div class="media-left">
-                <a href="{{product.get_absolute_url}}">
-                <img width="582" height="458" class="media-object" src="{% if product.image %}{{ product.image.url }}{% else %}{% endif %}" alt="...">
-                </a>
-              </div>
-              <div class="media-body">
-                <div class="price default_clr">
-                  <h4>₺ {{product.price}} - {{product.type}}</h4>
-                </div>
-                <div class="proerty_text">
-                  <h3 class="bottom15"> <a href="{{product.get_absolute_url}}">{{product.name}}</a></h3>
-                  <p>{{product.header | safe}}</p>
-                </div>
-                <div class="dealer clearfix">
-                  <i class="author"><img src="{% static 't.png' %}" alt="author"></i>
-                  <h4>{{product.agent}} &nbsp; <small>- Temsilci</small></h4>
-                  <span><i class="icon-phone4"></i>{{product.agent.phone}}</span>
-                  <a href="mailto:{{product.agent.email}}"><i class="icon-mail-envelope-closed3"></i>{{product.agent.email}}</a>
-                </div>
-                <div class="favroute clearfix">
-                  <p class="pull-md-left">{{product.region}}</p>
-                </div>
-                <div class="toggle_share collapse" id="seven">
-                  <ul>
-                    <li><a href="javascript:void(0)" class="facebook"><i class="icon-facebook-1"></i> Facebook</a></li>
-                    <li><a href="javascript:void(0)" class="twitter"><i class="icon-twitter-1"></i> Twitter</a></li>
-                    <li><a href="javascript:void(0)" class="vimo"><i class="icon-vimeo3"></i> Vimeo</a></li>
-                  </ul>
-                </div>
-                <div class="property_meta">
-                  <span><i class="icon-select-an-objecto-tool"></i>{{product.m2}} sq ft</span>
-                  <span><i class="icon-bed"></i>{{product.bedrooms}} Yatak Odası</span>
-                  <span><i class="icon-safety-shower"></i>{{product.bathrooms}} Banyo</span>
-                  {% if product.garage == True %}
-                  <span><i class="icon-garage"></i>1 Garaj</span>
-                  {% else %}
-                  {% endif %}
-                </div>
-              </div>
-            </div>
-          </div>
-          {% endfor %}
 
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-<section id="testinomialBg" class="padding bg_light">
-  <div id="agent-2" class="padding_bottom">
-  <div class="container">
-    <div class="row">
-      <div class="col-xs-12 text-center">
-        <h2 class="uppercase">Uzman Satış Danışmanlarımız</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam nec viverra erat Aenean elit tellus.</p>
-      </div>
-    </div>
-    <div class="row">
-      {% for agent in agents %}
-      <div class="col-sm-4 margin40">
-        <div class="agent_wrap">
-          <div class="image">
-            <img src="{{agent.image.url}}" alt="Agents">
-            <div class="img-info">
-              <h3>{{agent.name}}</h3>
-              <span>Sales executive</span>
-              <p class="top20 bottom30">Taşhan inşaat olarak bölgenin en iyilerini sizle buluşturmak bizim görevimizdir.</p>
-              <table class="agent_contact table">
-                <tbody>
-                  <tr class="bottom10">
-                    <td><strong>Telefon:</strong></td>
-                    <td class="text-right">{{agent.phone}}</td>
-                  </tr>
-                  <tr>
-                    <td><strong>Email Adres:</strong></td>
-                    <td class="text-right"><a href="#.">{{agent.email}}</a></td>
-                  </tr>
-                </tbody>
-              </table>
-              <hr>
-              <a class="btn-more" href="agent_profile.html">
-              <i><img alt="arrow" src="{% static 'images/arrow-yellow.png' %}"></i><span>İletişim</span><i><img alt="arrow" src="{% static 'images/arrow-yellow.png' %}"></i>
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-      {% endfor %}
-    </div>
-  </div>
-</div>
-  <div class="container bg_white padding">
-    <div class="row">
-      <div class="col-xs-12 text-center">
-        <h2 class="uppercase">Misafir Yorumlarımız</h2>
-        <br>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-md-12">
-         <div id="testinomial-slider" class="owl-carousel display navigate">
-           {% for comment in comments %}
-            <div class="item">
-            <div class="testinomial_content text-center">
-              <img width="300" src="{{comment.image.url}}" alt="happy client" class="bottom15">
-             <h4 class="uppercase"> {{comment.name}}</h4>
-             <span class="smmery bottom15">{{comment.postion}}</span>
-             <img src="{% static 'images/stars.png' %}" alt="rating" class="bottom30">
-             <p>{{comment.comment}}</p>
-            </div>
-          </div>
-           {% endfor %}
 
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-<section id="logos">
-  <div class="container partner2 padding">
-    <div class="row">
-      <div class="col-sm-12 text-center">
-      	<h2 class="uppercase">İş Ortaklarımız</h2>
-        <p class="heading_space">Bölgemize Yatırım katkı sağlayan tüm partnelerimiz.</p>
-      </div>
-    </div>
-    <div class="row">
-    <div id="partners" class="owl-carousel">
-        <div class="item">
-          <img src="{% static '1.png' %}" alt="Featured Partner">
-        </div>
-        <div class="item">
-          <img src="{% static '2.png' %}" alt="Featured Partner">
-        </div>
-        <div class="item">
-          <img src="{% static '3.png' %}" alt="Featured Partner">
-        </div>
-        <div class="item">
-          <img src="{% static '4.png' %}" alt="Featured Partner">
-        </div>
-        <div class="item">
-          <img src="{% static '5.png' %}" alt="Featured Partner">
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+
+
 {% endblock %}
 
 
